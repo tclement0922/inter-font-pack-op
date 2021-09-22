@@ -1,7 +1,7 @@
-id=inter-font
-name=Inter Font Pack
+id=inter-font-op
+name=Inter Font Pack for Oneplus devices
 version=v3.19.1
 versionCode=31901
-author=kdrag0n
-description=Font pack that replaces the system fonts with Inter (sans-serif), Fira Code (monospace), and Source Serif Pro (serif).
+author=kdrag0n, port by tclement09
+description=Font pack that replaces the system fonts with Inter (sans-serif), Fira Code (monospace), and Source Serif Pro (serif). Ported to fix OnePlus related issues.
 support=https://t.me/proton_projects

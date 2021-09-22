@@ -4,18 +4,31 @@ MODNAME ?= $(call getprop,id)
 MODVER ?= $(call getprop,version)
 ZIP = $(MODNAME)-$(MODVER).zip
 
-all: $(ZIP)
+all: overlays $(ZIP)
 
-zip: $(ZIP)
+magisk: $(ZIP)
+	
+overlays: clean_overlays
+	overlays/gradlew -p overlays app\:assembleRelease
+	while read -r package; do \
+	    cp "overlays/app/build/outputs/apk/$$(echo $$package | sed 's/\./_/g')/release/app-$$(echo $$package | sed 's/\./_/g')-release.apk" "system/product/overlay/_$$package.InterFontOverlay.apk"; \
+        done < overlays/overlays.txt
 
-%.zip: clean
-	zip -r9 $(ZIP) . -x $(MODNAME)-*.zip .gitignore .gitattributes Makefile /.git* *.DS_Store* *placeholder patch-font-names.sh
+%.zip: clean_magisk
+	zip -r9 $(ZIP) . -x $(MODNAME)-*.zip .gitignore .gitattributes Makefile /.git* *.DS_Store* *placeholder patch-font-names.sh /overlays* /screenshots*
 
-install: $(ZIP)
-	adb push $(ZIP) /sdcard/
-	echo '/sbin/.magisk/busybox/unzip -p "/sdcard/$(ZIP)" META-INF/com/google/android/update-binary | /sbin/.magisk/busybox/sh /proc/self/fd/0 x 1 "/sdcard/$(ZIP)"' | adb shell su -c sh -
+push: all
+	@ adb push $(ZIP) /data/local/tmp/interfontop.zip
 
-clean:
-	rm -f *.zip
+install: push
+	adb shell 'cd /data/local/tmp && su -c magisk --install-module interfontop.zip && rm interfontop.zip'
 
-.PHONY: all zip %.zip install clean
+clean_magisk:
+	@ rm -f *.zip
+
+clean_overlays:
+	@ rm -f system/product/overlay/*.apk
+	overlays/gradlew -p overlays clean
+
+clean: clean_magisk clean_overlays
+

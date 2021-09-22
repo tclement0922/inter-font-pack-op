@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Replace the original array by this empty one to hide the font style setting for every language -->
+    <array name="oneplus_font_style_support_language" />
+</resources>
