@@ -34,7 +34,7 @@ This module is supposed to work on the most recent Oxygen OS versions, although 
 
 |![Home screen](screenshots/homescreen.jpg)|![Quick settings](screenshots/quicksettings.jpg)|![Lock screen](screenshots/lockscreen.jpg)|
 |:-:|:-:|:-:|
-|Home screen|Quick settings|Lock screen (the weird rectangle is the only problem I found)|
+|Home screen|Quick settings|Lock screen (the weird rectangle is now fixed)|
 
 ## Installation
 
