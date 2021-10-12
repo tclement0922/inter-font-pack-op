@@ -46,8 +46,17 @@ Download the latest version zip from the releases page and flash it via Magisk.
 
 #### Manual Installation
 
+Requirements:
+ - Android SDK installed and adb in the path.
+ - One JDK installed and JAVA_HOME environment variable set.
+ - GNU Make installed.
+
 From your computer, clone this repository then run one of these commands:
- - `make` to build overlays and push them in the module source, then buid the module. This command requires GNU Make and Android SDK.
- - `make overlays` to build overlays and push them in the module source. This command requires Android SDK.
- - `make magisk` to only build the module. This commmand requires GNU Make.
- - `make install` to build then install the module on your phone. This command requires GNU Make, Android SDK and an Android device connected with adb enabled.
+ - `make` to build overlays and push them in the module source, then build the module.
+ - `make overlays` to build overlays and push them in the module source.
+ - `make magisk` to only build the module.
+ - `make install` to build then install the module on your phone.
+
+## License
+
+This module is licensed under the [MIT License](LICENSE).
