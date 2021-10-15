@@ -59,4 +59,6 @@ From your computer, clone this repository then run one of these commands:
 
 ## License
 
-This module is licensed under the [MIT License](LICENSE).
+This fork is licensed under the [MIT License](LICENSE). Copyright (c) 2021 T. Clément
+
+Upstream repo is licensed under the [MIT License](LICENCE_UPSTREAM). Copyright (c) 2021 Danny Lin
