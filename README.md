@@ -1,3 +1,7 @@
+> ## UNMAINTAINED
+>
+> As I don't own a OnePlus phone anymore, I can't maintain this module. Feel free to fork it if you want.
+
 # Inter Font Pack for OnePlus devices
 
 This is a Magisk module that replaces Oxygen OS's system fonts with:
